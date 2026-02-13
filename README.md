@@ -31,3 +31,58 @@ Para caracterizar cuantitativamente una señal, se emplean estadísticos descrip
 Además, la relación señal-ruido (SNR) es un parámetro fundamental que compara la potencia de la señal útil frente a la potencia del ruido. Un SNR alto implica una señal clara y confiable, mientras que un SNR bajo indica una señal fuertemente contaminada.
 
 El uso de herramientas computacionales como Python, con librerías como NumPy, SciPy y Matplotlib, permite importar, procesar y analizar señales fisiológicas de manera eficiente. Asimismo, plataformas como PhysioNet ofrecen bases de datos abiertas que facilitan el acceso a señales reales para fines académicos e investigativos.
+
+# OBJETIVOS: 
+Objetivo General: Caracterizar una señal biomédica en función de 
+parámetros estadísticos. 
+## Objetivos Específicos 
+- Identificar las principales magnitudes estadísticas que describen una señal 
+biomédica. 
+- Emplear funciones aritméticas y comandos específicos de un entorno de 
+programación para calcular diferentes parámetros estadísticos de una 
+señal biomédica. 
+- Plantear hipótesis desde la fisiología que expliquen los valores estadísticos 
+obtenidos.
+
+
+
+# PROCEDIMIENTO, MÉTODO O ACTIVIDADES A DESARROLLAR EN LA PRÁCTICA: 
+
+Las señales medidas de un entorno real, en este caso, las señales biomédicas están caracterizadas por contener información relevante, como amplitud y frecuencia e información que la contamina, denominada ruido.  
+Adicionalmente, existe información que puede describir una señal biomédica a partir de variables estadísticas. Para esta práctica de laboratorio el estudiante deberá descargar una señal fisiológica y calcular los estadísticos que la describen, explicando para qué sirve cada uno. 
+PARTE A.  
+1. Entrar a bases de datos de señales fisiológicas como physionet, buscar y descargar una señal fisiológica de libre elección. Tenga en cuenta que, si por algún motivo no puede calcular todos los parámetros solicitados porque la señal es muy corta, deberá descargar una nueva señal.
+2. Importar la señal en python y graficarla. Para esto pueden hacer uso de 
+cualquier compilador, como spyder, google colab, sistema operativo Linux, etc. 
+Se recomienda descargar la suite de Anaconda completa para utilizar 
+Python (Spyder) en Windows. 
+3. Calcular los estadísticos descriptivos de dos maneras diferentes cuando sea 
+posible: la primera vez, programando las fórmulas desde cero; la segunda vez, 
+haciendo uso de las funciones predefinidas de python.  
+Los estadísticos que se espera obtener son:  
+a. Media de la señal 
+b. Desviación estándar 
+c. Coeficiente de variación 
+d. Histogramas 
+e. Asimetría (skewness)  
+f.curtosis 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Curtosis
