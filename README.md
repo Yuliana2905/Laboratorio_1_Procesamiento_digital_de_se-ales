@@ -1,1 +1,2 @@
-# Laboratorio_1_Procesamiento_digital_de_se-ales
+# Laboratorio 1 Procesamiento digital de señales
+### Docente: Carolina Corredor Bedoya
