@@ -65,7 +65,10 @@ b. Desviación estándar
 c. Coeficiente de variación 
 d. Histogramas 
 e. Asimetría (skewness)  
-f.curtosis 
+f.curtosis
+
+# PARTE A.
+
 
 
 
