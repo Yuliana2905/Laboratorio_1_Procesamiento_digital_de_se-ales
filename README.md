@@ -127,10 +127,25 @@ print("Desviación estándar:",desviacion_m)
 En la señal ECG la desviación estándar es de 0.193 mV esto significa que la señal se desvia ±0.19 mV respecto a la linea base en este caso la desviación es pequeña lo que indica una señal estable con poco ruido.
 
 
+# PARTE C
+Para esta parte, usar la misma señal de la parte B: 
+1. Investigar qué es la relación señal ruido (SNR): 
+a. Contaminar la señal con ruido gaussiano y medir el SNR 
+b. Contaminar la señal con ruido impulso y medir el SNR 
+c. Contaminar la señal con ruido tipo artefacto y medir el SNR
 
+## ANALISIS
+## DIAGRAMAS DE FLUJO 
+# PARTE A
+# PARTE B
+# PARTE C
 
+### Preguntas para la discucion 
 
-
+- ¿Los valores estadísticos calculados sobre la señal sintética son 
+exactamente iguales a los obtenidos a partir de la señal real? ¿Por qué?
+- ¿Afecta el tipo de ruido el valor de la SNR calculado? ¿Cuáles podrían ser 
+las razones? 
 
 
 
