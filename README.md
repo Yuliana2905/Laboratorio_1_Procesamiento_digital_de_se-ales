@@ -74,7 +74,7 @@ Los registros ECG descargados desde PhysioNet se descargaron en formato WFDB, es
 Estos dos archivos son los que permiten leer correctamente la señal ECG en copiladores como Phyton.
 ```python
 import wfdb
-record = wfdb.rdrecord('100')  # SIN extensión
+record = wfdb.rdrecord('100') 
 signal = record.p_signal
 fs = record.fs
 ```
@@ -94,9 +94,21 @@ plt.show()
 Se grafica la señal ECG en un tiempo de 5 segundos. 
 <img width="712" height="550" alt="image" src="https://github.com/user-attachments/assets/f9192752-d68e-4ad6-b4ba-3e0876349ed0" />
 
-estadisticos a calcular : 
-1)Media de la señal.
+estadisticos a calcular. *
+1)Media de la señal. la media muestral representa el promedio de la amplitud del ECG, como la señal vibra alrededor de creo, tiende a estar cerca de cero.
+​
+```python
+#media 
+N=len(ecg)  
+suma=0
+for i in range(N):
+    suma+=ecg[i]
+media_m=suma/N
+print("Media:",media_m)
 
+Media: -0.30629897692306546
+```
+En señales fisiologicas bien centradas este valor suele verse cercano a 0 debido a la naturaleza oscilatoria de la señal.
 
 
 
