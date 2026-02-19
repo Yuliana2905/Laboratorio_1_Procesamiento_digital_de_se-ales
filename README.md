@@ -82,7 +82,20 @@ En la primera parte del código se cargan los datos asociado automaticamente el 
 En las señales ECG tipicamente hay dos derivación y normalmente se escoge uno para el analisis estadistico, seleccciona un vector 1D con las mediciones de anplitud del ECG
 ```python
 ecg = signal[:,0]
+
+tiempo = np.arange(0, 5*fs)
+plt.figure()
+plt.plot(tiempo/fs, ecg[0:5*fs])
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Amplitud (mV)")
+plt.title("ECG - Registro 100")
+plt.show()
 ```
+Se grafica la señal ECG en un tiempo de 5 segundos. 
+<img width="712" height="550" alt="image" src="https://github.com/user-attachments/assets/f9192752-d68e-4ad6-b4ba-3e0876349ed0" />
+
+estadisticos a calcular:
+1)Media de la señal.
 
 
 
@@ -103,4 +116,4 @@ ecg = signal[:,0]
 
 
 
-Curtosis
+
