@@ -64,10 +64,25 @@ a. Media de la señal
 b. Desviación estándar 
 c. Coeficiente de variación 
 d. Histogramas 
-e. Asimetría (skewness)  
+e. Asimetría (skewness)
 f.curtosis
 
+
 # PARTE A.
+Los registros ECG descargados desde PhysioNet se descargaron en formato WFDB, este formato consiste en dos archivos principales: 
+1).dat estos son los datos binarios de la señal y 2).hea que es la informacion de muestreo, canales y ganacia del tal señal.
+Estos dos archivos son los que permiten leer correctamente la señal ECG en copiladores como Phyton.
+```python
+import wfdb
+record = wfdb.rdrecord('100')  # SIN extensión
+signal = record.p_signal
+fs = record.fs
+```
+En la primera parte del código se cargan los datos asociado automaticamente el .hea y .dat, luego devuelve la matriz de la señal en forma de float y por ultimo muestra la frecuencia de muestreo en Hz.
+En las señales ECG tipicamente hay dos derivación y normalmente se escoge uno para el analisis estadistico, seleccciona un vector 1D con las mediciones de anplitud del ECG
+```python
+ecg = signal[:,0]
+```
 
 
 
