@@ -94,7 +94,7 @@ plt.show()
 Se grafica la señal ECG en un tiempo de 5 segundos. 
 <img width="712" height="550" alt="image" src="https://github.com/user-attachments/assets/f9192752-d68e-4ad6-b4ba-3e0876349ed0" />
 
-estadisticos a calcular:
+estadisticos a calcular : 
 1)Media de la señal.
 
 
