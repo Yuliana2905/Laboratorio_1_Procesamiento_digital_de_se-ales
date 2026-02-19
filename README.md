@@ -112,8 +112,7 @@ En señales fisiologicas bien centradas este valor suele verse cercano a 0 debid
 
 B) Derivación estándar. 
 este estadistico cuantifica la variabilidad de la amplitud del ECG respecto a su valor medio, en el electrocardiograma esta dispersión esta influenciada principalmente por la amplitud de los complejos QRS 
-<img width="303" height="75" alt="image" src="https://github.com/user-attachments/assets/19e6ff7d-cd70-4046-ba90-4b1d9c3106ff" /> "varianza"
-<img width="146" height="57" alt="image" src="https://github.com/user-attachments/assets/b29a49ee-70c3-4b17-baae-35118d12bfd3" />"desviación estándar"
+
 ```python
 suma_cuadrados=0
 for i in range(N):
