@@ -497,7 +497,12 @@ plt.show()
 ```
 ## ANALISIS
 ## DIAGRAMAS DE FLUJO 
+
 # PARTE A
+
+<img width="283" height="2200" alt="Untitled" src="https://github.com/user-attachments/assets/f6326ddf-7b97-42fc-bcf6-3b50a5326789" />
+
+
 # PARTE B
 # PARTE C
 
