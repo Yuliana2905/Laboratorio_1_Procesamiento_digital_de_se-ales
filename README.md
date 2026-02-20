@@ -350,6 +350,7 @@ Posteriormente, se generó un vector de ruido con distribución normal, media ce
 Para cuantificar el efecto del ruido sobre la señal, se calculó la Relación Señal-Ruido (SNR) en decibelios (dB).
 
 ```phyton
+
 import numpy as np
 sigma_g=0.05*np.std(ec_g_1d_signal)
 gaussian_noise=np.random.normal(0, sigma_g, len(ec_g_1d_signal))
@@ -358,6 +359,7 @@ power_signal_gaussian=np.mean(ec_g_1d_signal**2)
 power_noise_gaussian=np.mean(gaussian_noise**2)
 snr_gaussian=10*np.log10(power_signal_gaussian/power_noise_gaussian)
 print(f"SNR para el ruido gaussiano (dB): {snr_gaussian}")
+
 ```
 
 Primero, se estimó la potencia de la señal original, calculada como el valor medio del cuadrado de la señal ECG:
@@ -380,6 +382,7 @@ SNR para el ruido gaussiano (dB): 33.73230538099961
 <img width="1245" height="547" alt="image" src="https://github.com/user-attachments/assets/e824240d-562f-4329-bd77-9d49184c95d2" />
 
 ```phyton
+
 import matplotlib.pyplot as plt
 
 plt.figure(figsize=(15, 6))
@@ -391,6 +394,7 @@ plt.ylabel('Amplitud (mV)')
 plt.legend()
 plt.grid(True)
 plt.show()
+
 ```
 
 La figura muestra una comparación temporal entre la señal ECG original y la señal contaminada con ruido gaussiano, donde la señal original presenta complejos QRS bien definidos y una línea base estable, mientras que la señal con ruido conserva la morfología general del ECG pero exhibe pequeñas fluctuaciones aleatorias distribuidas uniformemente a lo largo de toda la señal; estas perturbaciones, características del ruido gaussiano, no generan picos abruptos sino variaciones suaves alrededor del valor original, permitiendo que los eventos principales como los picos R sigan siendo claramente identificables, aunque con menor nitidez, lo cual evidencia que la estructura del ECG no se ve gravemente distorsionada y es consistente con el valor de SNR obtenido, que indica una relación señal-ruido moderada.
@@ -401,6 +405,7 @@ La figura muestra una comparación temporal entre la señal ECG original y la se
 se seleccionó la señal ECG original correspondiente a una sola derivación. Posteriormente, se definió un porcentaje de muestras a contaminar (1 % del total), con el objetivo de simular interferencias breves y de gran amplitud típicas del ruido impulso, como desconexiones momentáneas de electrodos o movimientos bruscos del paciente. A partir de este porcentaje, se calculó el número total de impulsos y se generó un vector de ruido inicialmente nulo. Los índices donde se introduciría el ruido fueron seleccionados de manera aleatoria, garantizando que los impulsos se distribuyeran de forma no periódica a lo largo del tiempo. En dichos índices se asignaron valores aleatorios dentro de un rango proporcional a la amplitud máxima de la señal ECG original, permitiendo que los impulsos presentaran amplitudes tanto positivas como negativas. Finalmente, este ruido impulso se sumó a la señal original para obtener la señal ECG contaminada.
 
 ```phyton
+
 import numpy as np
 
 ec_g_1d_signal = data[:, 1]
@@ -420,6 +425,7 @@ power_signal = np.mean(ec_g_1d_signal**2)
 power_noise = np.mean(impulse_noise**2)
 snr_impulse = 10 * np.log10(power_signal / power_noise)
 print(f"SNR con ruido impulso (dB): {snr_impulse}")
+
 ```
 SNR con ruido impulso (dB): 19.948019014079836
 
@@ -444,6 +450,7 @@ plt.ylabel('Amplitud (mV)')
 plt.legend()
 plt.grid(True)
 plt.show()
+
 ```
 
 ### Parte C ruido tipo artefacto y medir el SNR
@@ -452,6 +459,7 @@ En este caso, la señal ECG original fue contaminada con ruido tipo artefacto me
 Una vez obtenida la señal con ruido de artefacto, se calculó la potencia de la señal ECG original como el promedio del cuadrado de sus muestras. De manera similar, se estimó la potencia del ruido de artefacto a partir de la señal sinusoidal generada. Con estas potencias se calculó la relación señal-ruido (SNR) en decibelios, permitiendo evaluar cuantitativamente el impacto de la deriva de la línea base sobre la calidad de la señal.
 
 ```phyton
+
 import numpy as np
 amplitude_wander = 0.1
 frequency_wander = 0.05
@@ -461,6 +469,7 @@ power_signal_artifact = np.mean(ec_g_1d_signal**2)
 power_noise_artifact = np.mean(baseline_wander_noise**2)
 snr_artifact = 10 * np.log10(power_signal_artifact / power_noise_artifact)
 print(f"SNR con ruido de artefacto (dB): {snr_artifact}")
+
 ```
 
 Una vez obtenida la señal con ruido de artefacto, se calculó la potencia de la señal ECG original como el promedio del cuadrado de sus muestras. De manera similar, se estimó la potencia del ruido de artefacto a partir de la señal sinusoidal generada. Con estas potencias se calculó la relación señal-ruido (SNR) en decibelios, permitiendo evaluar cuantitativamente el impacto de la deriva de la línea base sobre la calidad de la señal.
