@@ -344,7 +344,7 @@ c. Contaminar la señal con ruido tipo artefacto y medir el SNR
 # PARTE B
 # PARTE C
 
-### Preguntas para la discucion 
+# Preguntas para la discucion 
 
 - ¿Los valores estadísticos calculados sobre la señal sintética son 
 exactamente iguales a los obtenidos a partir de la señal real? ¿Por qué?
