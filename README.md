@@ -517,6 +517,8 @@ La señal real presenta características no gaussianas más marcadas que la señ
 las razones? 
 
 
+-Sí, el tipo de ruido sí afecta el valor de la SNR, porque no todos los ruidos alteran la señal de la misma forma. El ruido gaussiano se reparte a lo largo de toda la señal con pequeñas variaciones, por lo que la SNR suele disminuir de manera moderada; en cambio, el ruido impulso, aunque aparece en pocas muestras, tiene amplitudes muy altas que aumentan bastante la potencia del ruido y hacen que la SNR sea mucho menor; por su parte, el ruido tipo artefacto, como la deriva de la línea base, no genera picos bruscos, pero introduce una variación lenta que se mantiene en el tiempo y termina afectando la SNR de forma progresiva. En general, la diferencia en la amplitud, la duración y la forma en que cada ruido se distribuye en la señal explica por qué la SNR cambia según el tipo de ruido aplicado.
+
 # Conclusión 
 
 El análisis descriptivo permitió cuantificar el comportamiento estadístico de la señal ECG en el dominio temporal. Las medidas de tendencia central, dispersión y forma evidenciaron que la señal presenta variabilidad significativa y no sigue una distribución normal ideal. Los valores de asimetría y curtosis obtenidos demostraron que la señal posee características no gaussianas, principalmente debido a la presencia de complejos QRS, los cuales generan picos de alta amplitud y colas pesadas en la distribución, esto confirma que el ECG no puede modelarse estrictamente como un proceso aleatorio normal.
