@@ -348,6 +348,14 @@ c. Contaminar la señal con ruido tipo artefacto y medir el SNR
 
 - ¿Los valores estadísticos calculados sobre la señal sintética son 
 exactamente iguales a los obtenidos a partir de la señal real? ¿Por qué?
+
+No, los valores estadísticos de una señal sistentica y unba señal real difieren, aunque pueden ser similares en orden de margnitud,esto se debe a que la señal sintética es generada mediante un modelo matemático idealizado, mientras que la señal real incorpora variabilidad fisiologica, ruido instrumental y posibles artefactos de medición.
+
+En la parte a se trabajo una señal sintética, en la parte b se trabajo una señal real de ECG.
+En la media, la señal sintetica, la media probablemente estuvo muy cercana a cero o perfectamenre centrada mientras que en la señal real tambien cercana a cero pero presento desviaciones pequeñas que se pueden atribuir a offset intrumental, ruido de adquisición, para la desviacion estandar y varianza en la señal real la dispersión suele ser mayor porque los complejos QRS no son idénticos, hay variabilidad del latido, ecxiste ruido fisiologico. La señal sintetica en cambio es mas regular y controlada, la asimetria la señal real muestra uhna mayor asimetria debido a que los QRS general extremos positivos y la señal sinetica puede ser menor.
+La señal real presenta características no gaussianas más marcadas que la señal sintética, lo cual se evidencia en el aumento de la curtosis y la asimetría.
+
+
 - ¿Afecta el tipo de ruido el valor de la SNR calculado? ¿Cuáles podrían ser 
 las razones? 
 
