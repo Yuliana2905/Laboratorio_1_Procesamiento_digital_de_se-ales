@@ -510,6 +510,15 @@ plt.show()
 
 # PARTE C
 
+#### Parte a
+
+<img width="262" height="911" alt="image" src="https://github.com/user-attachments/assets/f5970a4b-b311-400c-bf59-c0fa96d57f2c" />
+
+#### Parte b
+
+
+#### Parte c
+
 
 
 # Preguntas para la discucion 
