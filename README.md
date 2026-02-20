@@ -94,8 +94,15 @@ plt.show()
 Se grafica la señal ECG en un tiempo de 5 segundos. 
 <img width="712" height="550" alt="image" src="https://github.com/user-attachments/assets/f9192752-d68e-4ad6-b4ba-3e0876349ed0" />
 
-estadisticos a calcular. *
+estadisticos a calcular. 
+
 A) Media de la señal. la media muestral representa el promedio de la amplitud del ECG, como la señal vibra alrededor de creo, tiende a estar cerca de cero.
+
+Para hallar la maedia se tendra en cuenta la siguiente formula:
+
+
+<img width="190" height="98" alt="image" src="https://github.com/user-attachments/assets/6a448f87-f51c-4e76-99c2-dd2cf9b7b92a" />
+
 ​
 ```python
 #media 
@@ -111,7 +118,11 @@ Media: -0.30629897692306546
 En señales fisiologicas bien centradas este valor suele verse cercano a 0 debido a la naturaleza oscilatoria de la señal.
 
 B) Derivación estándar. 
-este estadistico cuantifica la variabilidad de la amplitud del ECG respecto a su valor medio, en el electrocardiograma esta dispersión esta influenciada principalmente por la amplitud de los complejos QRS 
+
+Este estadistico cuantifica la variabilidad de la amplitud del ECG respecto a su valor medio, en el electrocardiograma esta dispersión esta influenciada principalmente por la amplitud de los complejos QRS 
+
+<img width="321" height="81" alt="image" src="https://github.com/user-attachments/assets/e9e466dd-e9fb-4100-95f7-3bc8fcafa27c" />
+
 
 ```python
 suma_cuadrados=0
@@ -125,6 +136,108 @@ print("varianza m:" ,varianza_m)
 print("Desviación estándar:",desviacion_m)
 ```
 En la señal ECG la desviación estándar es de 0.193 mV esto significa que la señal se desvia ±0.19 mV respecto a la linea base en este caso la desviación es pequeña lo que indica una señal estable con poco ruido.
+
+C) Coeficiente de variación.
+
+El CV es una medida de dispersión relativa que se calcula como:
+
+<img width="184" height="80" alt="image" src="https://github.com/user-attachments/assets/6bb83d51-0e5f-4bac-a804-9be82b11a587" />
+
+en un ECG la media suele estar serca a 0 por lo que se se divide algo cercano a ero el CV se podria dsitapara y perder sentido, lo cual es normal en señales centradas.
+```phyton
+cv = abs(desviacion_m/media_m)
+cv_porcentaje=cv*100
+
+print("Coeficiente de variación:",cv)
+print("Coeficiente de variación(%):",cv_porcentaje)
+```
+
+el coeficiente de variación no es el descriptor estadistico mas adecuado para señales como ECG ya que mas medidas dan cercanas a cero.
+
+D) Histograma.
+
+Es una representación de la frecuencia con las que aparecen ciertos valores, para en eje X la amplitud del ECG (mV), en el eje Y se encuentra la frecuencia de ocurrencia, el histograma permite ver si la señal se parce a distribucion normal, tiene colas y si es simétrica o no.
+```phyton
+plt.figure()
+plt.hist(ecg,bins=100,density=True)
+plt.xlabel("Amplitud (mV)")
+plt.ylabel("Densidad")
+plt.title("Histograma normalizado del ECG")
+plt.show()
+```
+<img width="688" height="555" alt="image" src="https://github.com/user-attachments/assets/170f3866-b8bb-42f6-af34-597496e0b5a9" />
+
+En el histograma se observa una concentración grande al rededor de cero, correspindiente al comportamiento basal del ECG, se observan colas hacia valores positivos asociasos a cojmplejos QRS esto por los picos y sus distribución no perfecatemnte gaussiana, se representó el histograma en términos de densidad para aproximar la función de distribución de probabilidad de la señal y permitir un análisis estadístico independiente del número total de muestras.
+
+E) Asimetria:
+
+
+<img width="328" height="111" alt="image" src="https://github.com/user-attachments/assets/0eedbf6a-79e8-45e5-9e2d-dacbd2f0dfb7" />
+
+la asimetria mide si la distribución tiene cola hacia la derecha entonces skewness positiva, pero si por otro lado tine cola hacia la izquierda entonces skewness negativa, la distibucion es simetrica cercana a cero.
+```phyton
+N=len(ecg)
+media_m=np.mean(ecg)
+desviacion_m=np.std(ecg,ddof=1)
+z=(ecg-media_m)/desviacion_m
+suma_cubos=np.sum(z**3)
+skewness_muestral=(N/((N-1)*(N-2)))*suma_cubos
+print("Skewness muestral corregida:",skewness_muestral)
+from scipy.stats import norm
+plt.figure()
+#Histograma en densidad
+plt.hist(ecg,bins=100,density=True,alpha=0.6)
+# Ajuste normal con misma media y desviación
+x=np.linspace(min(ecg),max(ecg),1000)
+plt.plot(x,norm.pdf(x,media_m,desviacion_m))
+plt.xlabel("Amplitud (mV)")
+plt.ylabel("Densidad")
+plt.title("Histograma vs Distribución Normal")
+plt.show()
+```
+<img width="687" height="558" alt="image" src="https://github.com/user-attachments/assets/d4fe0f00-fd36-48c5-8e0f-3d7f41cd812d" />
+
+El coeficiente de asimetría positivo y elevado indica una distribución con cola pronunciada hacia valores positivos, atribuible a la presencia de complejos QRS de alta amplitud.
+
+F)Curtosis
+
+<img width="352" height="107" alt="image" src="https://github.com/user-attachments/assets/b1391e78-7258-478a-a3d4-d62ac7b46eb8" />
+
+La curtosis cuantifica el grado de concentración y el peso de las colas deuna distribución con respecto a la normal, en un ECG mide que tan pronunciados y extremos son los picos  en especial del complejo QRS en comparación con la otra señal.
+```phyton
+#CURTOSIS
+suma_cuartos=0
+
+for i in range(N):
+    suma_cuartos+=((ecg[i]-media_m)/desviacion_m)**4
+curtosis_manual=suma_cuartos/N
+exceso_curtosis=curtosis_manual-3
+print("Curtosis:",curtosis_manual)
+print("Exceso de curtosis:",exceso_curtosis)
+```
+normal=0
+
+leptocúrtica >0
+
+platicúrtica <0
+
+
+el valor psitivo elevado de la curtosis indica una distribución leptocúrtica, caracterizada por un pico central pronunciado, atribuido a la presecia de complejos QRS de alta amplitud 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # PARTE C
