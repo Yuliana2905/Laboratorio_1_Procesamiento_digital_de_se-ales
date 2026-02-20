@@ -333,10 +333,57 @@ El analisisi descriptivo realizado en esta parte permite caracterizar cuantitati
 
 # PARTE C
 Para esta parte, usar la misma señal de la parte B: 
-1. Investigar qué es la relación señal ruido (SNR): 
-a. Contaminar la señal con ruido gaussiano y medir el SNR 
-b. Contaminar la señal con ruido impulso y medir el SNR 
-c. Contaminar la señal con ruido tipo artefacto y medir el SNR
+1. Investigar qué es la relación señal ruido (SNR):
+## SEÑAL SNR 
+
+La relación señal-ruido, también conocida como SNR por sus siglas en inglés (Signal-to-Noise Ratio), es un concepto básico cuando hablamos de cualquier sistema que maneje señales. De todos modos, es en el mundo del audio donde toma especial relevancia. Simplificándolo mucho, la SNR es una medida que compara la potencia de una señal deseada, en este caso, el sonido que se va a escuchar, con la potencia del ruido de fondo no deseado que está presente en el mismo sistema.
+
+<img width="601" height="350" alt="image" src="https://github.com/user-attachments/assets/27707dc0-7c84-4ce9-b2bf-dc6b2b8d2731" />
+
+
+## Parte a ruido gaussiano y medir el SNR 
+
+En primer lugar, se generó ruido gaussiano para simular la presencia de interferencias aleatorias en la señal ECG, similares al ruido térmico o electrónico presente en sistemas de adquisición biomédica.
+La desviación estándar del ruido se definió como el 5 % de la desviación estándar de la señal ECG original, con el fin de controlar la intensidad del ruido y evitar una degradación excesiva de la señal:
+### σₙ = 0.05 · std(señal ECG)
+Posteriormente, se generó un vector de ruido con distribución normal, media cero y desviación estándar σₙ. Este ruido se sumó punto a punto a la señal ECG original, obteniendo así una señal contaminada con ruido gaussiano.
+Para cuantificar el efecto del ruido sobre la señal, se calculó la Relación Señal-Ruido (SNR) en decibelios (dB).
+
+Primero, se estimó la potencia de la señal original, calculada como el valor medio del cuadrado de la señal ECG:
+
+### Pₛ = mean(ECG²)
+
+Luego, se calculó la potencia del ruido gaussiano de forma análoga:
+
+### Pₙ = mean(ruido²)
+
+Finalmente, el SNR se obtuvo mediante la expresión:
+
+### SNR (dB) = 10 · log₁₀(Pₛ / Pₙ)
+
+Este valor indica cuántas veces la potencia de la señal es mayor que la del ruido; a mayor SNR, menor degradación de la señal.
+
+### Grafica de la señal contaminada vs señal original
+
+<img width="1245" height="547" alt="image" src="https://github.com/user-attachments/assets/e824240d-562f-4329-bd77-9d49184c95d2" />
+
+
+La figura muestra una comparación temporal entre la señal ECG original y la señal contaminada con ruido gaussiano, donde la señal original presenta complejos QRS bien definidos y una línea base estable, mientras que la señal con ruido conserva la morfología general del ECG pero exhibe pequeñas fluctuaciones aleatorias distribuidas uniformemente a lo largo de toda la señal; estas perturbaciones, características del ruido gaussiano, no generan picos abruptos sino variaciones suaves alrededor del valor original, permitiendo que los eventos principales como los picos R sigan siendo claramente identificables, aunque con menor nitidez, lo cual evidencia que la estructura del ECG no se ve gravemente distorsionada y es consistente con el valor de SNR obtenido, que indica una relación señal-ruido moderada.
+
+
+### Parte B ruido impulso y medir el SNR
+
+### Grafica de la señal contaminada vs señal original
+
+<img width="1245" height="547" alt="image" src="https://github.com/user-attachments/assets/47d33bce-a624-41e7-92c0-5db51d07d908" />
+
+
+### Parte C ruido tipo artefacto y medir el SNR
+
+<img width="1245" height="547" alt="image" src="https://github.com/user-attachments/assets/d281b217-91d1-4e51-8caf-a745fd6aa3b0" />
+
+
+### Grafica de la señal contaminada vs señal original
 
 ## ANALISIS
 ## DIAGRAMAS DE FLUJO 
