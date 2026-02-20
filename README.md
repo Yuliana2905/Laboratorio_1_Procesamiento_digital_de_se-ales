@@ -504,7 +504,13 @@ plt.show()
 
 
 # PARTE B
+
+<img width="248" height="2033" alt="Untitled (1)" src="https://github.com/user-attachments/assets/6fc8b055-9e92-461e-a47a-37bd1ab5e47e" />
+
+
 # PARTE C
+
+
 
 # Preguntas para la discucion 
 
