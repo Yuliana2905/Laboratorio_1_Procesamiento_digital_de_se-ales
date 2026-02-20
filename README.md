@@ -228,6 +228,93 @@ platicúrtica <0
 
 el valor psitivo elevado de la curtosis indica una distribución leptocúrtica, caracterizada por un pico central pronunciado, atribuido a la presecia de complejos QRS de alta amplitud 
 
+# PARTE B
+
+En esta parte se realizo el analisis estadistico descriptivo de la señal ECG en el dominio temporal a diferencia de la parte A, donde se analizarlos los datos puntuales en esta parte se evaluara la señal completa con el fin de caracterizar el comporamiento global, la señal ECG es una señal biomédica discreta obtenida mediente muestreo, cuya amplitud representa la actividade electrica cardíaca en función del tiempo.
+
+Se descargo la señal de phyron y fue procesada para luego gragicarla.
+```phyton
+import numpy as np
+
+ecg = np.loadtxt("senal_ecg.txt", skiprows=1)
+print("Número de muestras:", len(ecg))
+print("Primeras 10 muestras:", ecg[:10])
+
+data=np.loadtxt("senal_ecg.txt", skiprows=1)
+tiempo=data[:,0]
+ecg=data[:,1]
+print("Número de muestras:", len(ecg))
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12,4))
+plt.plot(ecg)
+
+plt.title("Señal ECG")
+plt.xlabel("Muestras")
+plt.ylabel("Amplitud")
+plt.grid(True)
+plt.show()
+```
+
+<img width="715" height="265" alt="image" src="https://github.com/user-attachments/assets/f0420d58-dae2-4d66-a531-d1527e8294ed" />
+
+Se calcularon las siguientes medidas estadísticas:
+
+A) Media
+```phyton
+import numpy as np
+media=np.mean(ecg)
+print("Media:", media)
+```
+B) Desviación estándar
+```phyton
+desviacion=np.std(ecg, ddof=1)
+print("Desviación estándar:", desviacion)
+```
+
+C) Coeficiente de variación
+```phyton
+varianza=np.var(ecg, ddof=1)
+print("Varianza:", varianza)
+cV=desviacion/media
+print("CV:", cv)
+```
+
+D) Histograma de distribución
+```phyton
+import matplotlib.pyplot as plt
+plt.figure(figsize=(8,5))
+plt.hist(ecg, bins=50)
+plt.title("Histograma de la señal ECG")
+plt.xlabel("Amplitud")
+plt.ylabel("Frecuencia")
+plt.grid(True)
+plt.show()
+```
+<img width="703" height="473" alt="image" src="https://github.com/user-attachments/assets/1debfe38-855c-4657-a5e0-962784da85a7" />
+
+
+E) Asimetría (Skewness)
+```phyton
+from scipy.stats import skew
+asimetria = skew(ecg, bias=False)
+print("Asimetría:", asimetria)
+```
+
+F) Curtosis 
+
+```phyton
+from scipy.stats import kurtosis
+curt=kurtosis(ecg, bias=False)
+print("Curtosis:",curt)
+```
+
+En esta parte el analisis estadistico nos muestra que la señal presenta variabilidad significativa, no sigue un distribución normal, posee asímetria positiva y curtosis elevada.
+El comportamiento estadistico de la señal esta influenciado por el complejo QRS 
+El analisisi descriptivo realizado en esta parte permite caracterizar cuantitativamente la señal ECG en el dominio temporal.
+
+
 
 
 
