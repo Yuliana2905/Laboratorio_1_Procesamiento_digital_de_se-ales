@@ -145,7 +145,8 @@ El CV es una medida de dispersión relativa que se calcula como:
 
 en un ECG la media suele estar serca a 0 por lo que se se divide algo cercano a ero el CV se podria dsitapara y perder sentido, lo cual es normal en señales centradas.
 ```phyton
-cv = abs(desviacion_m/media_m)
+
+cv=abs(desviacion_m/media_m)
 cv_porcentaje=cv*100
 
 print("Coeficiente de variación:",cv)
@@ -176,6 +177,7 @@ E) Asimetria:
 
 la asimetria mide si la distribución tiene cola hacia la derecha entonces skewness positiva, pero si por otro lado tine cola hacia la izquierda entonces skewness negativa, la distibucion es simetrica cercana a cero.
 ```phyton
+
 N=len(ecg)
 media_m=np.mean(ecg)
 desviacion_m=np.std(ecg,ddof=1)
@@ -185,6 +187,7 @@ skewness_muestral=(N/((N-1)*(N-2)))*suma_cubos
 print("Skewness muestral corregida:",skewness_muestral)
 from scipy.stats import norm
 plt.figure()
+
 #Histograma en densidad
 plt.hist(ecg,bins=100,density=True,alpha=0.6)
 # Ajuste normal con misma media y desviación
@@ -194,6 +197,7 @@ plt.xlabel("Amplitud (mV)")
 plt.ylabel("Densidad")
 plt.title("Histograma vs Distribución Normal")
 plt.show()
+
 ```
 <img width="687" height="558" alt="image" src="https://github.com/user-attachments/assets/d4fe0f00-fd36-48c5-8e0f-3d7f41cd812d" />
 
