@@ -360,6 +360,10 @@ La señal real presenta características no gaussianas más marcadas que la señ
 las razones? 
 
 
+# Conclusión 
+
+El análisis descriptivo permitió cuantificar el comportamiento estadístico de la señal ECG en el dominio temporal. Las medidas de tendencia central, dispersión y forma evidenciaron que la señal presenta variabilidad significativa y no sigue una distribución normal ideal. Los valores de asimetría y curtosis obtenidos demostraron que la señal posee características no gaussianas, principalmente debido a la presencia de complejos QRS, los cuales generan picos de alta amplitud y colas pesadas en la distribución, esto confirma que el ECG no puede modelarse estrictamente como un proceso aleatorio normal.
+La desviación estándar y la varianza reflejan la energía estadística de la señal y su variabilidad fisiológica. En la señal real se evidenció mayor dispersión debido a la variabilidad latido a latido y al ruido inherente al proceso de adquisición, el histograma permitió visualizar la distribución empírica de las amplitudes, evidenciando concentración alrededor de valores bajos y presencia de valores extremos asociados a los complejos ventriculares. Esta representación gráfica complementa la interpretación numérica de los estadísticos.
 
 
 
